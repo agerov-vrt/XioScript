@@ -1,42 +1,41 @@
 Module.add( new Module({
 
     id: "Ads",
-    name: "Advertisements",
-    explanation: `Set a subdivision's advertisement budget according to 'Budget' for the media 'Medium'. A 'Minimum' budget will set the budget to the minimum required for the medium. Required will set the budget to match the required number of contacts to keep the current reputation for TV, as given on the ads page. Population will set the budget to make sure the number of contacts is the population times the input given in the Population Input. For any other budget that Population Input is ignored. If this population budget exceeds Maximum it will be set to Maximum.  Maximum budget will set the maximum budget allowed by the top manager to keep 100% efficiency.`,
-    subTypes: ["shop", "fitness", "hairdressing", "laundry", "restaurant", "medicine", "fuel", "repair", "kindergarten", "cellular"],
+    name: "Реклама",
+    explanation: `Настройка рекламы в подразделениях по заданным параметрам. Параметр "Минимум" задает бюджет по умолчанию в выбранном типе рекламы. Параметр "Требуемый" установит бюджет необходимый для соранения числа контактов, т.е. сохранит текущий уровень известности. Параметр "Население" установит бюджет, что бы обеспечить введённое число контактов. Любой другой бюджет игнорируется. Параметр "Максимум" выставит бюджет рекламной компании согласно возможностям вашего ТОП-менеджера в сфере маркетинга.`,    subTypes: ["shop", "fitness", "hairdressing", "laundry", "restaurant", "medicine", "fuel", "repair", "kindergarten", "cellular"],
     predecessors: [],
     options: [
         new Option({
             id: "budget",
-            name: "Budget",
+            name: "Бюджет",
             type: "select",
             start: "required",
             values: [
-                new Value({ id: "zero", name: "Zero" }),
-                new Value({ id: "minimum", name: "Minimum" }),
-                new Value({ id: "required", name: "Required" }),
-                new Value({ id: "population", name: "Population" }),
-                new Value({ id: "maximum", name: "Maximum" }),
+                new Value({ id: "zero", name: "Обнулить" }),
+                new Value({ id: "minimum", name: "Минимум" }),
+                new Value({ id: "required", name: "Требуемый" }),
+                new Value({ id: "population", name: "Население" }),
+                new Value({ id: "maximum", name: "Максимум" }),
             ]
         }),
         new Option({
             id: "population",
-            name: "Population",
+            name: "население",
             type: "textbox",
             format: "Float",
             start: 2.5
         }),
         new Option({
             id: "medium",
-            name: "Medium",
+            name: "Реклама",
             type: "select",
             start: "tv",
             values: [
-                new Value({ id: "internet", name: "Internet" }),
-                new Value({ id: "press", name: "Press" }),
-                new Value({ id: "outdoor", name: "Outdoor" }),
-                new Value({ id: "radio", name: "Radio" }),
-                new Value({ id: "tv", name: "TV" }),
+                new Value({ id: "internet", name: "Интернет" }),
+                new Value({ id: "press", name: "Газеты" }),
+                new Value({ id: "outdoor", name: "Наружная" }),
+                new Value({ id: "radio", name: "Радио" }),
+                new Value({ id: "tv", name: "Телевидение" }),
             ]
         })
     ],
